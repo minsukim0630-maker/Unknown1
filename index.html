@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>포케슬론 트레이닝</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- 시작 화면 -->
+  <section id="screen-start" class="screen">
+    <div class="start-box">
+      <h1>포케슬론 트레이닝</h1>
+      <p class="subtitle">3년간의 육성으로 포케슬론 출전을 목표로!</p>
+
+      <label class="field">
+        <span>닉네임</span>
+        <input id="input-name" maxlength="10" placeholder="이름을 입력 (비우면 종족명)" />
+      </label>
+
+      <div class="species-list" id="species-list"></div>
+
+      <div class="start-actions">
+        <button id="btn-continue" class="btn btn-sub" hidden>이어하기</button>
+        <button id="btn-start" class="btn btn-main">육성 시작</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 육성 화면 -->
+  <section id="screen-train" class="screen" hidden>
+    <header class="topbar">
+      <div class="turn-label" id="turn-label"></div>
+      <div class="turn-badges" id="turn-badges"></div>
+      <div class="turn-remaining" id="turn-remaining"></div>
+    </header>
+
+    <div class="layout">
+      <aside class="panel char-panel">
+        <div class="char-icon" id="char-icon"></div>
+        <div class="char-name" id="char-name"></div>
+        <div class="char-species" id="char-species"></div>
+
+        <div class="meter">
+          <div class="meter-label"><span>체력</span><span id="energy-text"></span></div>
+          <div class="bar"><div class="bar-fill energy" id="energy-fill"></div><div class="bar-preview" id="energy-preview"></div></div>
+        </div>
+
+        <div class="mood" id="mood"></div>
+
+        <h3>서포터 유대</h3>
+        <ul class="supporter-list" id="supporter-list"></ul>
+      </aside>
+
+      <main class="main">
+        <div class="panel stats" id="stats"></div>
+
+        <div class="panel trainings">
+          <h3>트레이닝 <small>카드를 눌러 미리보기 → 한 번 더 누르면 실행</small></h3>
+          <div class="training-grid" id="training-grid"></div>
+        </div>
+
+        <div class="actions">
+          <button class="btn btn-rest" id="btn-rest">🛏️ 휴식</button>
+          <button class="btn btn-outing" id="btn-outing">🎈 외출</button>
+        </div>
+
+        <div class="panel log">
+          <h3>기록</h3>
+          <ul id="log"></ul>
+        </div>
+      </main>
+    </div>
+  </section>
+
+  <!-- 결과 화면 -->
+  <section id="screen-result" class="screen" hidden>
+    <div class="result-box">
+      <h1>육성 완료!</h1>
+      <div class="result-char" id="result-char"></div>
+      <div class="result-rank" id="result-rank"></div>
+      <div class="panel stats" id="result-stats"></div>
+      <div class="result-summary" id="result-summary"></div>
+      <p class="result-msg">포케슬론 출전 준비가 끝났다! (포케슬론 경기는 다음 단계에서 구현 예정)</p>
+      <button id="btn-restart" class="btn btn-main">처음으로</button>
+    </div>
+  </section>
+
+  <!-- 모달 (이벤트/결과 알림) -->
+  <div class="modal-backdrop" id="modal" hidden>
+    <div class="modal">
+      <h2 id="modal-title"></h2>
+      <div id="modal-body"></div>
+      <div class="modal-buttons" id="modal-buttons"></div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/engine.js"></script>
+  <script src="js/ui.js"></script>
+</body>
+</html>
